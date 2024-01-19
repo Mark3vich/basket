@@ -1,7 +1,9 @@
 import './App.css';
-import Card from './components/card/Card.jsx';
+import Card from './components/card/Card';
+import { useRef } from 'react';
 
 function App() {
+  const containerRef = useRef(null);
   let testData1 = [
     {
       title: "Товар 1",
@@ -116,11 +118,12 @@ function App() {
           </div>
           <div
             className="flex border mb-10 relative cursor-pointer hover:bg-blue-100 rounded-xl flex-col text-center justify-between text-3xl items-center gap-5"
-          >
+          id="metka">
             <img
               className="w-full scale-125"
-              src="rack_files/basket-ws.58667f9ab914ba96bbda9ab2cdd754a3.svg"
+              src="basket-ws.58667f9ab914ba96bbda9ab2cdd754a3.svg"
               alt=""
+              ref={containerRef}
             />
             <div className="flex justify-between px-5 w-full items-center"></div>
             <div
@@ -160,7 +163,7 @@ function App() {
               className="w-full min-w-full grid grid-cols-4 items-stretch justify-center"
             >
               {testData1.map((item, index) => (
-                <Card item={item} key={index} isFlag={false}/>
+                <Card item={item} key={index} isFlag={false} />
               ))}
             </div>
             <div
@@ -169,7 +172,7 @@ function App() {
             > 
               {/* на данную группу товаров будет расространаться скрипт */}
               {testData2.map((item, index) => (
-                <Card item={item} key={index} isFlag={true}/>
+                <Card item={item} key={index} isFlag={true} containerRef={containerRef}/>
               ))}
             </div>
             <div
