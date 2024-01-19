@@ -1,9 +1,74 @@
 import './App.css';
+import Card from './components/card/Card.jsx';
 
 function App() {
+  let testData1 = [
+    {
+      title: "Товар 1",
+      icon: "/images_cards/image_1.jpg",
+      price: 100,
+    },
+    {
+      title: "Товар 2",
+      icon: "/images_cards/image_2.jpg",
+      price: 200,
+    },
+    {
+      title: "Товар 3",
+      icon: "/images_cards/image_3.jpg",
+      price: 300,
+    },
+    {
+      title: "Товар 4",
+      icon: "/images_cards/image_2.jpg",
+      price: 400,
+    },
+  ];
+  let testData2 = [
+    {
+      title: "Товар 5",
+      icon: "/images_cards/image_1.jpg",
+      price: 500,
+    },
+    {
+      title: "Товар 6",
+      icon: "/images_cards/image_2.jpg",
+      price: 600,
+    },
+    {
+      title: "Товар 7",
+      icon: "/images_cards/image_1.jpg",
+      price: 600,
+    }, 
+    {
+      title: "Товар 8",
+      icon: "/images_cards/image_3.jpg",
+      price: 600,
+    },
+  ];
+  let testData3 = [
+    {
+      title: "Товар 9",
+      icon: "/images_cards/image_1.jpg",
+      price: 700
+    },
+    {
+      title: "Товар 10",
+      icon: "/images_cards/image_2.jpg",
+      price: 800
+    },
+    {
+      title: "Товар 11",
+      icon: "/images_cards/image_3.jpg",
+      price: 900
+    },
+    {
+      title: "Товар 12",
+      icon: "/images_cards/image_2.jpg",
+      price: 1000
+    }
+  ];
   return (
-    <div className="App">
-      <noscript>You need to enable JavaScript to run this app.</noscript>
       <div id="root">
       <div className="w-full h-screen border flex font-['Open_Sans']">
         <div
@@ -94,83 +159,32 @@ function App() {
               style={{gridTemplateColumns: "repeat(4, minmax(0px, 1fr))"}}
               className="w-full min-w-full grid grid-cols-4 items-stretch justify-center"
             >
-              <div
-                className="w-full h-full border-2 cursor-pointer border-black bg-white text-white false"
-              >
-                <ul className="mt-2"></ul>
-              </div>
-              <div
-                className="w-full h-full border-2 cursor-pointer border-black bg-white text-white false"
-              >
-                <ul className="mt-2"></ul>
-              </div>
-              <div
-                className="w-full h-full border-2 cursor-pointer border-black bg-white text-white false"
-              >
-                <ul className="mt-2"></ul>
-              </div>
-              <div
-                className="w-full h-full border-2 cursor-pointer border-black bg-white text-white false"
-              >
-                <ul className="mt-2"></ul>
-              </div>
+              {testData1.map((item, index) => (
+                <Card item={item} key={index} isFlag={false}/>
+              ))}
+            </div>
+            <div
+              style={{gridTemplateColumns: "repeat(4, minmax(0px, 1fr))"}}
+              className="w-full min-w-full grid grid-cols-4 items-stretch justify-center"
+            > 
+              {/* на данную группу товаров будет расространаться скрипт */}
+              {testData2.map((item, index) => (
+                <Card item={item} key={index} isFlag={true}/>
+              ))}
             </div>
             <div
               style={{gridTemplateColumns: "repeat(4, minmax(0px, 1fr))"}}
               className="w-full min-w-full grid grid-cols-4 items-stretch justify-center"
             >
-              <div
-                className="w-full h-full border-2 cursor-pointer border-black bg-white text-white false"
-              >
-                <ul className="mt-2"></ul>
-              </div>
-              <div
-                className="w-full h-full border-2 cursor-pointer border-black bg-white text-white false"
-              >
-                <ul className="mt-2"></ul>
-              </div>
-              <div
-                className="w-full h-full border-2 cursor-pointer border-black bg-white text-white false"
-              >
-                <ul className="mt-2"></ul>
-              </div>
-              <div
-                className="w-full h-full border-2 cursor-pointer border-black bg-white text-white false"
-              >
-                <ul className="mt-2"></ul>
-              </div>
-            </div>
-            <div
-              style={{gridTemplateColumns: "repeat(4, minmax(0px, 1fr))"}}
-              className="w-full min-w-full grid grid-cols-4 items-stretch justify-center"
-            >
-              <div
-                className="w-full h-full border-2 cursor-pointer border-black bg-white text-white false"
-              >
-                <ul className="mt-2"></ul>
-              </div>
-              <div
-                className="w-full h-full border-2 cursor-pointer border-black bg-white text-white false"
-              >
-                <ul className="mt-2"></ul>
-              </div>
-              <div
-                className="w-full h-full border-2 cursor-pointer border-black bg-white text-white false"
-              >
-                <ul className="mt-2"></ul>
-              </div>
-              <div
-                className="w-full h-full border-2 cursor-pointer border-black bg-white text-white false"
-              >
-                <ul className="mt-2"></ul>
-              </div>
+              {testData3.map((item, index) => (
+                <Card item={item} key={index} isFlag={false}/>
+              ))}
             </div>
           </div>
         </div>
       </div>
       <div className="Toastify"></div>
       </div>
-    </div>
   );
 }
 
